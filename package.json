@@ -7,6 +7,7 @@
     "producao": "pm2 start bin/www"
   },
   "dependencies": {
+    "angular": "^1.5.8",
     "async": "^2.0.1",
     "bcryptjs": "^2.3.0",
     "body-parser": "~1.13.2",
@@ -29,7 +30,7 @@
     "nodemailer": "^2.5.0",
     "nodemailer-smtp-transport": "^2.6.0",
     "nodemailer-wellknown": "^0.1.10",
-    "nodemon": "^2.0.4",
+    "nodemon": "^2.0.22",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "pdfkit": "^0.8.0",

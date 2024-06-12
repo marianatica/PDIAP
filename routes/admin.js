@@ -354,6 +354,42 @@ router.put('/putUpdateExibir', miPermiso("3"), (req, res) => {
                                   console.log('findOne error--> ${error}'); // Alteração Lucas Ferreira
                                 }
 });
+
+
+// rota para enviar e-mail
+router.post('/contato2', (req, res) => {
+  let email = req.body.email
+  ,   nome = req.body.nome
+  ,   assunto = req.body.assunto
+  ,   mensagem = req.body.mensagem;
+
+  const transporter = nodemailer.createTransport(smtpTransport({
+    host: 'smtp.gmail.com',
+    port: 587,
+    auth: {
+      user: "contatomovaci@gmail.com",
+      pass: "lenhqdvbmnqvbqdr" // Alteração senha superApp - Lucas Ferreira
+    }
+  }));
+
+
+  var mailOptions = {
+    from: 'contatomovaci@gmail.com',
+    to: email,
+    subject: assunto,
+    text: '',
+    html: '<b> Saudações:</b><br><b>Para: </b>'+email+'<br><b>Assunto: </b>'+assunto+'<br><b>Mensagem: </b>'+mensagem
+  };
+
+  transporter.sendMail(mailOptions, function(error, info){
+    if(error){
+      return console.log(req.body);
+    } else {
+      res.send('success');
+    }
+    console.log('Message sent: ' + info.response);
+  });
+});
       
 router.put('/atualizaParticipante', miPermiso("3"), (req, res) => {
   try {

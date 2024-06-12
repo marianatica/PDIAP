@@ -387,6 +387,16 @@
 			return $http(request);
 		}
 
+	
+		let _postContato2 = function (contato) {
+			const request = {
+			  url: "/admin/contato2",
+			  method: "POST",
+			  data: contato,
+			};
+			return $http(request);
+		  };
+
 		return {
 			//postLoginAdmin: _postLoginAdmin,
 			postEdit: _postEdit,
@@ -428,6 +438,7 @@
 			postDocumento: _postDocumento,
 			getDocumentos: _getDocumentos,
 			removeDocumento: _putDocumento,
+			postContato2: _postContato2,
 			putUpdateExibir: _putUpdateExibir
 		};
 	});
